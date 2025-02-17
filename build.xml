@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<!-- By default, only the Clean and Build commands use this build script. -->
+<!-- Commands such as Run, Debug, and Test only use this build script if -->
+<!-- the Compile on Save feature is turned off for the project. -->
+<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
+<!-- in the project's Project Properties dialog box.-->
+<project name="poo-Biblioteca" default="default" basedir=".">
+    <description>Builds, tests, and runs the project poo-Biblioteca.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <!-- Adicionando o alvo -init-libraries -->
+    <target name="-init-libraries">
+        <!-- Defina aqui as tarefas necessárias -->
+        <echo message="Inicializando bibliotecas..."/>
+    </target>
+
+    <!--
+    Existem vários alvos que por padrão estão vazios e podem ser 
+    usados para execução de suas tarefas. Esses alvos são geralmente executados 
+    antes e depois de alguns alvos principais. Eles são:
+
+      -pre-init:                 chamado antes da inicialização das propriedades do projeto
+      -post-init:                chamado após a inicialização das propriedades do projeto
+      -pre-compile:              chamado antes da compilação javac
+      -post-compile:             chamado após a compilação javac
+      -pre-compile-single:       chamado antes da compilação javac de um único arquivo
+      -post-compile-single:      chamado após a compilação javac de um único arquivo
+      -pre-compile-test:         chamado antes da compilação javac de testes JUnit
+      -post-compile-test:        chamado após a compilação javac de testes JUnit
+      -pre-compile-test-single:  chamado antes da compilação javac de um único teste JUnit
+      -post-compile-test-single: chamado após a compilação javac de um único teste JUnit
+      -pre-jar:                  chamado antes da criação do JAR
+      -post-jar:                 chamado após a criação do JAR
+      -post-clean:               chamado após a limpeza dos produtos de build
+
+    (Alvos que começam com '-' não são destinados a serem chamados por conta própria.)
+
+    Exemplo de inserção de um ofuscador após a compilação pode se parecer com isto:
+
+        <target name="-post-compile">
+            <obfuscate>
+                <fileset dir="${build.classes.dir}"/>
+            </obfuscate>
+        </target>
+
+    Para uma lista de propriedades disponíveis, confira o arquivo importado 
+    nbproject/build-impl.xml. 
+
+    Outra maneira de personalizar o build é substituindo os alvos principais existentes.
+    Os alvos de interesse são: 
+
+      -init-macrodef-javac:     define macro para a compilação javac
+      -init-macrodef-junit:     define macro para a execução do junit
+      -init-macrodef-debug:     define macro para a depuração de classes
+      -init-macrodef-java:      define macro para a execução de classes
+      -do-jar:                  criação do JAR
+      run:                      execução do projeto 
+      -javadoc-build:           geração do Javadoc
+      test-report:              geração do relatório JUnit
+
+    Um exemplo de substituição do alvo para execução do projeto pode se parecer com isto:
+
+        <target name="run" depends="poo-Biblioteca-impl.jar">
+            <exec dir="bin" executable="launcher.exe">
+                <arg file="${dist.jar}"/>
+            </exec>
+        </target>
+
+    Observe que o alvo substituído depende do alvo jar e não apenas do alvo compile, como o alvo run regular. Novamente, para uma lista de propriedades disponíveis que você pode usar, verifique o alvo que está substituindo no
+    arquivo nbproject/build-impl.xml.
+
+    -->
+</project>
