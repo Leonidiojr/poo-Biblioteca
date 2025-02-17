@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,17 @@ public class Funcionario extends Pessoa {
 
     public Date getDataDeAdmissao() { return dataDeAdmissao; }
     public void setDataDeAdmissao(Date dataDeAdmissao) { this.dataDeAdmissao = dataDeAdmissao; }
-    
+        
+    private final List<Livro> livrosEmprestados = new ArrayList<>();
+
+    public void adicionarLivro(Livro livro) {
+        livrosEmprestados.add(livro);
+    }
+
+    public void removerLivro(Livro livro) {
+        livrosEmprestados.remove(livro);
+    }
+        
     @Override
     public String toString() {
         return "Funcionario{" +

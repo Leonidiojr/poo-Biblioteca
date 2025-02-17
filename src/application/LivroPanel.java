@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import model.EmprestimoLivroAdaptador;
+import view.Gerenciar;
 
 public class LivroPanel extends JPanel {
 
@@ -75,7 +76,7 @@ public class LivroPanel extends JPanel {
         
 
         // Botão Emprestar
-        JButton emprestarButton = new JButton("Emprestar");
+        JButton emprestarButton = new JButton("Gerenciar");
         emprestarButton.setFont(fonteTitulo);
         emprestarButton.addActionListener(new ActionListener() {
             @Override
@@ -84,17 +85,9 @@ public class LivroPanel extends JPanel {
                 // Criando o adaptador de empréstimo de livros
                 EmprestimoLivroAdaptador emprestimoAdapter = new EmprestimoLivroAdaptador();
                 
-                // Lógica para emprestar o livro
-                Cliente cliente = biblioteca.getClientes().isEmpty() ? null : biblioteca.getClientes().get(0); 
-                if (cliente != null) {
-                    // Emprestando e devolvendo livros usando o adaptador
-                    emprestimoAdapter.emprestaLivro(livro, cliente);                                                            
-                    String newMessage = biblioteca.verificarEmprestimo(livro);
-                    JOptionPane.showMessageDialog(null, newMessage);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Nenhum cliente registrado para emprestar o livro.");
-                }
-                
+                JFrame parentFrame = new JFrame();
+                Gerenciar gerenciar = new Gerenciar(parentFrame, true);
+                gerenciar.setVisible(true);                                
                 
             }
         });

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,19 @@ public class Cliente extends Pessoa {
     public Date getDataDeAssociacao() { return dataDeAssociacao; }
     public void setDataDeAssociacao(Date dataDeAssociacao) { this.dataDeAssociacao = dataDeAssociacao; }
 
+    private List<Livro> livrosEmprestados = new ArrayList<>();
+
+    // Construtor e outros métodos conforme mencionado anteriormente
+
+    public void adicionarLivro(Livro livro) {
+        livrosEmprestados.add(livro);
+    }
+
+    public void removerLivro(Livro livro) {
+        livrosEmprestados.remove(livro);
+    }
+   
+   
 
     @Override
     public String toString() {
@@ -31,4 +45,6 @@ public class Cliente extends Pessoa {
                 ", dataDeAssociacao=" + dataDeAssociacao +
                 "} " + super.toString();
     }
+
+    
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,18 @@ public class Gerente extends Funcionario {
     // Getters e Setters
     public List<Funcionario> getSubordinados() { return subordinados; }
     public void setSubordinados(List<Funcionario> subordinados) { this.subordinados = subordinados; }
+    
+    private List<Livro> livrosEmprestados = new ArrayList<>();
 
+    public void adicionarLivro(Livro livro) {
+        livrosEmprestados.add(livro);
+    }
+
+    public void removerLivro(Livro livro) {
+        livrosEmprestados.remove(livro);
+    
+    }
+    
     @Override
     public String toString() {
         return "Gerente{" +

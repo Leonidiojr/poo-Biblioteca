@@ -80,6 +80,31 @@ public class Livro {
                 '}';
     }
 
+    private String emprestarLivro(Livro livro, Pessoa pessoa) {
+        Biblioteca unicaBiblioteca = Biblioteca.getInstanciaDaBiblioteca();
+        String mensagemResposta;
+
+        if (unicaBiblioteca.getEmprestimosDeLivros().contains(livro)) {
+            mensagemResposta = "Livro " + livro.getTitulo() + " não está disponível para ser emprestado.";
+        } else {
+            unicaBiblioteca.getEmprestimosDeLivros().add(livro);
+
+            if (pessoa instanceof Cliente) {
+                ((Cliente) pessoa).adicionarLivro(livro);
+                mensagemResposta = "Livro " + livro.getTitulo() + " emprestado para o cliente " + pessoa.getNome() + ".";
+            } else if (pessoa instanceof Gerente) {
+                ((Gerente) pessoa).adicionarLivro(livro);
+                mensagemResposta = "Livro " + livro.getTitulo() + " emprestado para o gerente " + pessoa.getNome() + ".";
+            } else if (pessoa instanceof Funcionario) {
+                ((Funcionario) pessoa).adicionarLivro(livro);
+                mensagemResposta = "Livro " + livro.getTitulo() + " emprestado para o funcionário " + pessoa.getNome() + ".";
+            } else {
+                mensagemResposta = "Tipo de pessoa desconhecido.";
+            }
+        }
+
+        return mensagemResposta;
+    }
  
     
     
